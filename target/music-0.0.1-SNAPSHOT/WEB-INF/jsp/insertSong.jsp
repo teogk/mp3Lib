@@ -17,7 +17,7 @@
             Artist:
             <form:input path="artist"/>
 
-            <input type="file" name="myfile" >
+            <input type="file" name="myfile">
 
 
             <input type="submit">

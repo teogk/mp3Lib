@@ -12,22 +12,24 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
 
 @Controller
 public class SongController {
 
     @Autowired
     SongDao songDao;
-
-
 
     @GetMapping(value = "view")
     public String getSongs(ModelMap mm) {
@@ -43,6 +45,7 @@ public class SongController {
         return "insertSong";
     }
 
+    @javax.validation.constraints.Size(min = 0, max = 45)
     @PostMapping(value = "doinsertSong")
     public String doinsertSong(ModelMap mm, @ModelAttribute Song song, @RequestParam(value = "myfile") MultipartFile mf) {
         song.setFilename(mf.getOriginalFilename());
@@ -53,6 +56,13 @@ public class SongController {
         }
         songDao.insert(song);
         return "redirect:/view/";
+    }
+
+    @GetMapping(value = "download/{id}", produces = MediaType.ALL_VALUE)
+    public @ResponseBody
+    byte[] downloadFile(ModelMap mm, @PathVariable("id") int id) {
+        Song song = songDao.getSong(id);
+        return song.getFile();
     }
 
 }

@@ -7,6 +7,7 @@
         <title>JSP Page</title>
         <style>
             table {border-collapse: collapse;}
+            a{font-size: 30px;}
         </style>
     </head>
     <body>
