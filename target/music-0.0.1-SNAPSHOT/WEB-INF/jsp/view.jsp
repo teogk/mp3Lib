@@ -32,7 +32,7 @@
             </c:forEach>
         </table>
         <br><br>
-        <div><a href="music/insert">Insert mp3</a></div>
+        <div><a href="${pageContext.request.contextPath}/insert">Insert mp3</a></div>
 
     </body>
 </html>

@@ -9,7 +9,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form:form method="POST" modelAttribute="song" action="doinsertSong" enctype="multipart/form-data">
+        <form:form method="POST" modelAttribute="song" action="${pageContext.request.contextPath}/doinsertSong" enctype="multipart/form-data">
             Song title:
             <form:input path="title"/>
             Album:

@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- *
- * @author thodo
- */
+
 @Controller
 public class SongController {
 
@@ -39,14 +36,14 @@ public class SongController {
         return "view";
     }
 
-    @GetMapping(value = "/music/insert")
+    @GetMapping(value = "insert")
     public String insertSong(ModelMap mm) {
         Song song = new Song();
         mm.addAttribute("song", song);
         return "insertSong";
     }
 
-    @PostMapping(value = "/music/doinsertSong")
+    @PostMapping(value = "doinsertSong")
     public String doinsertSong(ModelMap mm, @ModelAttribute Song song, @RequestParam(value = "myfile") MultipartFile mf) {
         song.setFilename(mf.getOriginalFilename());
         try {

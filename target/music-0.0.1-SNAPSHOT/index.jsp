@@ -11,7 +11,7 @@
     </head>
     <body>
 
-        <a href="view">View</a>
+        <a href="view">Music Library</a>
 
     </body>
 </html>
