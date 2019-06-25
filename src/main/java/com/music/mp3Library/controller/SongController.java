@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -45,7 +43,7 @@ public class SongController {
         return "insertSong";
     }
 
-    @javax.validation.constraints.Size(min = 0, max = 45)
+    
     @PostMapping(value = "doinsertSong")
     public String doinsertSong(ModelMap mm, @ModelAttribute Song song, @RequestParam(value = "myfile") MultipartFile mf) {
         song.setFilename(mf.getOriginalFilename());
