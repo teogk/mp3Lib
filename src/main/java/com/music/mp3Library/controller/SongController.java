@@ -45,10 +45,10 @@ public class SongController {
 
     
     @PostMapping(value = "doinsertSong")
-    public String doinsertSong(ModelMap mm, @ModelAttribute Song song, @RequestParam(value = "myfile") MultipartFile mf) {
-        song.setFilename(mf.getOriginalFilename());
+    public String doinsertSong(@ModelAttribute Song song, @RequestParam(value = "mp3") MultipartFile myMP3) {
+        song.setFilename(myMP3.getOriginalFilename());
         try {
-            song.setFile(mf.getBytes());
+            song.setFile(myMP3.getBytes());
         } catch (IOException ex) {
             Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
         }

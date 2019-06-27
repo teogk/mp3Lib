@@ -12,8 +12,6 @@
         <style>
             body{font-size: 18px;}
             table{border-collapse: collapse;
-                  width: 55%;
-                  text-align: center;
                   background-color:white;
                   border-radius: 10px;
                   overflow: hidden; 
@@ -46,25 +44,6 @@
                 text-decoration: none;
                 color: white;
                 font-size: 28px;
-            }
-            input[type=text], select {
-                width: 100%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-            input[type=submit] {
-                width: 100%;
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
             }
             h2{text-align: center;font-family:Snell Roundhand, cursive;}
         </style>
