@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="5113" started-at="2019-06-27T13:05:24Z" finished-at="2019-06-27T13:05:29Z">
+  <suite name="Surefire suite" duration-ms="5315" started-at="2019-06-27T13:23:14Z" finished-at="2019-06-27T13:23:19Z">
     <groups>
     </groups>
-    <test name="Surefire test" duration-ms="5113" started-at="2019-06-27T13:05:24Z" finished-at="2019-06-27T13:05:29Z">
+    <test name="Surefire test" duration-ms="5315" started-at="2019-06-27T13:23:14Z" finished-at="2019-06-27T13:23:19Z">
       <class name="com.music.mp3Library.DemoApplicationTests">
-        <test-method status="PASS" signature="contextLoads()" name="contextLoads" duration-ms="4762" started-at="2019-06-27T16:05:24Z" finished-at="2019-06-27T16:05:29Z">
+        <test-method status="PASS" signature="contextLoads()" name="contextLoads" duration-ms="4984" started-at="2019-06-27T16:23:14Z" finished-at="2019-06-27T16:23:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- contextLoads -->

@@ -5,6 +5,11 @@
  */
 package com.music.mp3Library.controller;
 
+import com.mpatric.mp3agic.ID3v1;
+import com.mpatric.mp3agic.ID3v2;
+import com.mpatric.mp3agic.InvalidDataException;
+import com.mpatric.mp3agic.Mp3File;
+import com.mpatric.mp3agic.UnsupportedTagException;
 import com.music.mp3Library.dao.SongDao;
 import com.music.mp3Library.model.Song;
 import java.io.IOException;
@@ -43,11 +48,29 @@ public class SongController {
         return "insertSong";
     }
 
-    
     @PostMapping(value = "doinsertSong")
     public String doinsertSong(@ModelAttribute Song song, @RequestParam(value = "mp3") MultipartFile myMP3) {
-        song.setFilename(myMP3.getOriginalFilename());
+
         try {
+            song.setFilename(myMP3.getOriginalFilename());
+            try {
+                Mp3File mp3file = new Mp3File("C:\\Users\\thodo\\Downloads\\One Love.mp3");
+                if (mp3file.hasId3v1Tag()) {
+                    ID3v1 id3v1Tag = mp3file.getId3v1Tag();
+                    song.setTitle(id3v1Tag.getTitle());
+                    song.setAlbum(id3v1Tag.getAlbum());
+                    song.setArtist(id3v1Tag.getArtist());
+                } else if (mp3file.hasId3v2Tag()) {
+                    ID3v2 id3v2Tag = mp3file.getId3v2Tag();
+                    song.setTitle(id3v2Tag.getTitle());
+                    song.setAlbum(id3v2Tag.getAlbum());
+                    song.setArtist(id3v2Tag.getArtist());
+                }
+
+            } catch (UnsupportedTagException | InvalidDataException ex) {
+                Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             song.setFile(myMP3.getBytes());
         } catch (IOException ex) {
             Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
