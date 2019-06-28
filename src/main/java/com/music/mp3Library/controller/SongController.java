@@ -12,6 +12,7 @@ import com.mpatric.mp3agic.Mp3File;
 import com.mpatric.mp3agic.UnsupportedTagException;
 import com.music.mp3Library.dao.SongDao;
 import com.music.mp3Library.model.Song;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -50,11 +51,13 @@ public class SongController {
 
     @PostMapping(value = "doinsertSong")
     public String doinsertSong(@ModelAttribute Song song, @RequestParam(value = "mp3") MultipartFile myMP3) {
-
         try {
+            File mp3File = multipartToFile(myMP3, myMP3.getName());
+            String path = mp3File.getAbsolutePath();
+
             song.setFilename(myMP3.getOriginalFilename());
             try {
-                Mp3File mp3file = new Mp3File("C:\\Users\\thodo\\Downloads\\One Love.mp3");
+                Mp3File mp3file = new Mp3File(path);
                 if (mp3file.hasId3v1Tag()) {
                     ID3v1 id3v1Tag = mp3file.getId3v1Tag();
                     song.setTitle(id3v1Tag.getTitle());
@@ -84,6 +87,12 @@ public class SongController {
     byte[] downloadFile(ModelMap mm, @PathVariable("id") int id) {
         Song song = songDao.getSong(id);
         return song.getFile();
+    }
+
+    public static File multipartToFile(MultipartFile multipart, String fileName) throws IllegalStateException, IOException {
+        File convFile = new File(System.getProperty("java.io.tmpdir") + "/" + fileName);
+        multipart.transferTo(convFile);
+        return convFile;
     }
 
 }
