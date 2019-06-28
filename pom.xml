@@ -67,11 +67,11 @@
             <version>2.5.2</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.mpatric/mp3agic -->
+        <!-- https://mvnrepository.com/artifact/net.sf.javamusictag/jid3lib -->
         <dependency>
-            <groupId>com.mpatric</groupId>
-            <artifactId>mp3agic</artifactId>
-            <version>0.9.1</version>
+            <groupId>net.sf.javamusictag</groupId>
+            <artifactId>jid3lib</artifactId>
+            <version>0.5.4</version>
         </dependency>
     </dependencies>
     <build>

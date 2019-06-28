@@ -5,13 +5,10 @@
  */
 package com.music.mp3Library.controller;
 
-import com.mpatric.mp3agic.ID3v1;
-import com.mpatric.mp3agic.ID3v2;
-import com.mpatric.mp3agic.InvalidDataException;
-import com.mpatric.mp3agic.Mp3File;
-import com.mpatric.mp3agic.UnsupportedTagException;
 import com.music.mp3Library.dao.SongDao;
 import com.music.mp3Library.model.Song;
+import com.music.mp3Library.mp3Tags.Mp3Tags;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,12 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -33,6 +25,8 @@ public class SongController {
 
     @Autowired
     SongDao songDao;
+    @Autowired
+    Mp3Tags tags;
 
     @GetMapping(value = "view")
     public String getSongs(ModelMap mm) {
@@ -49,27 +43,15 @@ public class SongController {
     }
 
     @PostMapping(value = "doinsertSong")
-    public String doinsertSong(@ModelAttribute Song song, @RequestParam(value = "mp3") MultipartFile myMP3) {
+    public String doinsertSong(@ModelAttribute("song") Song song, @RequestParam(value = "mp3") MultipartFile myMP3) {
 
         try {
+            File mp3File = Mp3Tags.multipartToFile(myMP3, myMP3.getName());
             song.setFilename(myMP3.getOriginalFilename());
-            try {
-                Mp3File mp3file = new Mp3File("C:\\Users\\thodo\\Downloads\\One Love.mp3");
-                if (mp3file.hasId3v1Tag()) {
-                    ID3v1 id3v1Tag = mp3file.getId3v1Tag();
-                    song.setTitle(id3v1Tag.getTitle());
-                    song.setAlbum(id3v1Tag.getAlbum());
-                    song.setArtist(id3v1Tag.getArtist());
-                } else if (mp3file.hasId3v2Tag()) {
-                    ID3v2 id3v2Tag = mp3file.getId3v2Tag();
-                    song.setTitle(id3v2Tag.getTitle());
-                    song.setAlbum(id3v2Tag.getAlbum());
-                    song.setArtist(id3v2Tag.getArtist());
-                }
-
-            } catch (UnsupportedTagException | InvalidDataException ex) {
-                Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
+            song.setTitle(tags.getTitle(mp3File));
+            song.setAlbum(tags.getAlbum(mp3File));
+            song.setArtist(tags.getArtist(mp3File));
 
             song.setFile(myMP3.getBytes());
         } catch (IOException ex) {
@@ -83,6 +65,7 @@ public class SongController {
     public @ResponseBody
     byte[] downloadFile(ModelMap mm, @PathVariable("id") int id) {
         Song song = songDao.getSong(id);
+
         return song.getFile();
     }
 

@@ -4,4 +4,5 @@ com\music\mp3Library\model\Song.class
 com\music\mp3Library\model\Song_.class
 com\music\mp3Library\repository\SongRepo.class
 com\music\mp3Library\ServletInitializer.class
+com\music\mp3Library\mp3Tags\Mp3Tags.class
 com\music\mp3Library\DemoApplication.class
