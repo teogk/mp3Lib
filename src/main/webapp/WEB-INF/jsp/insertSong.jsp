@@ -10,12 +10,7 @@
     </head>
     <body>
         <form:form method="POST" modelAttribute="song" action="${pageContext.request.contextPath}/doinsertSong" enctype="multipart/form-data">
-            Song title:
-            <form:input path="title"/>
-            Album:
-            <form:input path="album"/>
-            Artist:
-            <form:input path="artist"/>
+           
 
             <input type="file" name="mp3">
 
