@@ -49,9 +49,8 @@
             }
             h2{text-align: center;font-family:Snell Roundhand, cursive;}
         </style>
-        <body background="<c:url value='/static/p.png' />">
     </head>
-    <body>
+    <body background="<c:url value='/static/p.png' />">
         <h2>MP3 Library</h2>
         <table class ="col-7 p-4 text-center table-center my-5 table-sm">
             <tr>

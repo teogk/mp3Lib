@@ -1,6 +1,30 @@
-table {border-collapse: collapse;}
-a{font-size: 60px;}
 body{text-align: center; }
+
+a {
+    background-color: forestgreen;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    position: absolute;
+    top: 300px;
+    transform:translate(-50%, -50%);
+
+}
+a:hover{
+    background-color: forestgreen;
+    cursor: pointer;
+    padding: 14px 20px;
+    transition: 0.2s;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.27), 0 17px 50px 0 rgba(0, 0, 0, 0.22);
+    text-decoration: none;
+    color: white;
+    font-size: 28px;
+} 
 p{font-size: 20px;}
+
+
 
 
