@@ -31,7 +31,7 @@
                 color: white;
                 font-size: 28px;
             }
-             h2{text-align: center;font-family:Snell Roundhand, cursive;}
+            h2{text-align: center;font-family:Snell Roundhand, cursive;}
         </style>
     </head>
     <body>
@@ -39,12 +39,8 @@
         <form:form method="POST" modelAttribute="song" action="${pageContext.request.contextPath}/doinsertSong" enctype="multipart/form-data">
 
             <div class="my-5 text-center"><input type="file" name="mp3" class=""></div>
-
-            <div class="my-5 text-center"> <input type="submit" value="Upload mp3" id="insert"></div>
-
-
-
-        </form:form>
+            <div class="my-5 text-center"> <input type="submit" value="Upload MP3" id="insert"></div>
+            </form:form>
 
     </body>
 </html>
