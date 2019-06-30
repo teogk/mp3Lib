@@ -22,6 +22,10 @@
                            margin-left: auto;
                            margin-right: auto;
             }
+
+            tr:nth-child(1) {
+                background: lightsteelblue;
+            }
             tr:hover {
                 background-color: lightgray;
             }
@@ -33,7 +37,7 @@
                 padding: 10px 15px;
                 font-size: 25px;
                 border-radius: 4px;
-                
+
             }
             .insert:hover{
                 background-color: forestgreen;

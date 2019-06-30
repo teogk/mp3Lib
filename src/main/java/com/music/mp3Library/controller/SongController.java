@@ -52,7 +52,7 @@ public class SongController {
 
         File mp3File;
         try {
-            mp3File = multipartToFile(myMP3, myMP3.getName());
+            mp3File = Mp3Tags.multipartToFile(myMP3, myMP3.getName());
             String path = mp3File.getAbsolutePath();
             song.setFilename(myMP3.getOriginalFilename());
             song.setTitle(mp3Tags.getTitle(path));
@@ -72,11 +72,4 @@ public class SongController {
         Song song = songDao.getSong(id);
         return song.getFile();
     }
-
-    public static File multipartToFile(MultipartFile multipart, String fileName) throws IllegalStateException, IOException {
-        File convFile = new File(System.getProperty("java.io.tmpdir") + "/" + fileName);
-        multipart.transferTo(convFile);
-        return convFile;
-    }
-
 }
