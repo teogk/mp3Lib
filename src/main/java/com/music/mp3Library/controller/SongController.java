@@ -12,6 +12,7 @@ import com.mpatric.mp3agic.Mp3File;
 import com.mpatric.mp3agic.UnsupportedTagException;
 import com.music.mp3Library.dao.SongDao;
 import com.music.mp3Library.model.Song;
+import com.music.mp3Library.mp3Tags.Mp3Tags;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -34,6 +35,8 @@ public class SongController {
 
     @Autowired
     SongDao songDao;
+    @Autowired
+    Mp3Tags mp3Tags;
 
     @GetMapping(value = "view")
     public String getSongs(ModelMap mm) {
@@ -51,29 +54,19 @@ public class SongController {
 
     @PostMapping(value = "doinsertSong")
     public String doinsertSong(@ModelAttribute Song song, @RequestParam(value = "mp3") MultipartFile myMP3) {
+
+        File mp3File;
         try {
-            File mp3File = multipartToFile(myMP3, myMP3.getName());
+            mp3File = multipartToFile(myMP3, myMP3.getName());
             String path = mp3File.getAbsolutePath();
-
             song.setFilename(myMP3.getOriginalFilename());
-            try {
-                Mp3File mp3file = new Mp3File(path);
-                if (mp3file.hasId3v1Tag()) {
-                    ID3v1 id3v1Tag = mp3file.getId3v1Tag();
-                    song.setTitle(id3v1Tag.getTitle());
-                    song.setAlbum(id3v1Tag.getAlbum());
-                    song.setArtist(id3v1Tag.getArtist());
-                } else if (mp3file.hasId3v2Tag()) {
-                    ID3v2 id3v2Tag = mp3file.getId3v2Tag();
-                    song.setTitle(id3v2Tag.getTitle());
-                    song.setAlbum(id3v2Tag.getAlbum());
-                    song.setArtist(id3v2Tag.getArtist());
-                }
-
-            } catch (UnsupportedTagException | InvalidDataException ex) {
-                Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+            song.setTitle(mp3Tags.getTitle(path));
+            song.setAlbum(mp3Tags.getAlbum(path));
+            song.setArtist(mp3Tags.getArtist(path));
+        } catch (IllegalStateException | IOException ex) {
+            Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
             song.setFile(myMP3.getBytes());
         } catch (IOException ex) {
             Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
