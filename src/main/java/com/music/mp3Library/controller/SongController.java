@@ -5,11 +5,6 @@
  */
 package com.music.mp3Library.controller;
 
-import com.mpatric.mp3agic.ID3v1;
-import com.mpatric.mp3agic.ID3v2;
-import com.mpatric.mp3agic.InvalidDataException;
-import com.mpatric.mp3agic.Mp3File;
-import com.mpatric.mp3agic.UnsupportedTagException;
 import com.music.mp3Library.dao.SongDao;
 import com.music.mp3Library.model.Song;
 import com.music.mp3Library.mp3Tags.Mp3Tags;
@@ -63,12 +58,8 @@ public class SongController {
             song.setTitle(mp3Tags.getTitle(path));
             song.setAlbum(mp3Tags.getAlbum(path));
             song.setArtist(mp3Tags.getArtist(path));
-        } catch (IllegalStateException | IOException ex) {
-            Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
             song.setFile(myMP3.getBytes());
-        } catch (IOException ex) {
+        } catch (IllegalStateException | IOException ex) {
             Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
         }
         songDao.insert(song);

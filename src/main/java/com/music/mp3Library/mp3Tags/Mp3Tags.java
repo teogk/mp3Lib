@@ -10,12 +10,12 @@ import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.Mp3File;
 import com.mpatric.mp3agic.UnsupportedTagException;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javassist.CtMethod.ConstParameter.string;
-
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -31,7 +31,6 @@ public class Mp3Tags {
             if (mp3file.hasId3v1Tag()) {
                 ID3v1 id3v1Tag = mp3file.getId3v1Tag();
                 title = id3v1Tag.getTitle();
-
             } else if (mp3file.hasId3v2Tag()) {
                 ID3v2 id3v2Tag = mp3file.getId3v2Tag();
                 title = id3v2Tag.getTitle();
@@ -49,7 +48,6 @@ public class Mp3Tags {
             if (mp3file.hasId3v1Tag()) {
                 ID3v1 id3v1Tag = mp3file.getId3v1Tag();
                 album = id3v1Tag.getAlbum();
-
             } else if (mp3file.hasId3v2Tag()) {
                 ID3v2 id3v2Tag = mp3file.getId3v2Tag();
                 album = id3v2Tag.getAlbum();
@@ -67,7 +65,6 @@ public class Mp3Tags {
             if (mp3file.hasId3v1Tag()) {
                 ID3v1 id3v1Tag = mp3file.getId3v1Tag();
                 artist = id3v1Tag.getArtist();
-
             } else if (mp3file.hasId3v2Tag()) {
                 ID3v2 id3v2Tag = mp3file.getId3v2Tag();
                 artist = id3v2Tag.getArtist();
