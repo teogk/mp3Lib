@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>🎵 MP3 Library</title>
         <style>
             table {border-collapse: collapse;}
             a{font-size: 30px;}
