@@ -81,7 +81,7 @@
             </c:forEach>
         </table>
         <br><br>
-        <div><a href="${pageContext.request.contextPath}/insert" class="insert">Insert mp3</a></div>
+        <div><a href="${pageContext.request.contextPath}/insert" class="insert">Insert MP3</a></div>
 
     </body>
 </html>

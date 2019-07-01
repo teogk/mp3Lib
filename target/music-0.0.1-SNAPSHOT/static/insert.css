@@ -1,5 +1,8 @@
 body{
-background-image: url("images/p.png");
+    background-image: url("images/p.png");
+}
+h2{
+    text-align: center;font-family:Snell Roundhand, cursive;
 }
 #insert {
     background-color: forestgreen;
@@ -8,8 +11,6 @@ background-image: url("images/p.png");
     padding: 10px 15px;
     font-size: 25px;
     border-radius: 4px;
-
-
 }
 #insert:hover{
     background-color: forestgreen;
@@ -21,4 +22,6 @@ background-image: url("images/p.png");
     color: white;
     font-size: 28px;
 }
-h2{text-align: center;font-family:Snell Roundhand, cursive;}
+#chose:hover{
+   cursor: pointer;
+}
