@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="static/insert.css">
     </head>
 
-    <body background="<c:url value='/static/p.png' />">
+    <body>
 
         <h2>MP3 Library</h2>
         <form:form method="POST" modelAttribute="song" action="${pageContext.request.contextPath}/doinsertSong" enctype="multipart/form-data">

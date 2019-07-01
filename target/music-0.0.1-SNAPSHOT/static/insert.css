@@ -1,3 +1,6 @@
+body{
+background-image: url("images/p.png");
+}
 #insert {
     background-color: forestgreen;
     border: none;

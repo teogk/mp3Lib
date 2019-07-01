@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="static/index.css">
     </head>
 
-    <body background="<c:url value='/static/p.png' />">
+    <body>
         <h2>Welcome</h2> <br>
         <p>Music is an art form and cultural activity whose medium is sound organized in time.
             General definitions of music include common elements such as pitch,
@@ -19,6 +19,8 @@
             solely vocal pieces and pieces that combine singing and instruments.</p>
 
         <a href="view">MP3 Library</a>
+        
+        <img src="static/images/s.png">
 
     </body>
 </html>

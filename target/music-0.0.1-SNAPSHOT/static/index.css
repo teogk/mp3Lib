@@ -1,4 +1,6 @@
-body{text-align: center; }
+body{text-align: center;
+background-image: url("images/p.png");
+}
 
 a {
     background-color: forestgreen;
@@ -9,9 +11,9 @@ a {
     border-radius: 4px;
     text-decoration: none;
     position: absolute;
-    top: 300px;
+    top: 280px;
+    left: 800px;
     transform:translate(-50%, -50%);
-
 }
 a:hover{
     background-color: forestgreen;
@@ -23,7 +25,15 @@ a:hover{
     color: white;
     font-size: 28px;
 } 
-p{font-size: 20px;}
+p{
+    font-size: 20px;
+}
+
+img{
+    margin-top: 130px;
+    width:60% ;
+    height:60%;
+}
 
 
 
