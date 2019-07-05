@@ -1,6 +1,7 @@
 com\music\mp3Library\controller\SongController.class
 com\music\mp3Library\dao\SongDao.class
 com\music\mp3Library\model\Song.class
+com\music\mp3Library\utils\Utils.class
 com\music\mp3Library\model\Song_.class
 com\music\mp3Library\repository\SongRepo.class
 com\music\mp3Library\ServletInitializer.class

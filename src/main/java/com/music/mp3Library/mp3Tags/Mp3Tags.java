@@ -10,12 +10,10 @@ import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.Mp3File;
 import com.mpatric.mp3agic.UnsupportedTagException;
-import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -73,11 +71,5 @@ public class Mp3Tags {
             Logger.getLogger(Mp3Tags.class.getName()).log(Level.SEVERE, null, ex);
         }
         return artist;
-    }
-
-    public static File multipartToFile(MultipartFile multipart, String fileName) throws IllegalStateException, IOException {
-        File convFile = new File(System.getProperty("java.io.tmpdir") + "/" + fileName);
-        multipart.transferTo(convFile);
-        return convFile;
     }
 }
