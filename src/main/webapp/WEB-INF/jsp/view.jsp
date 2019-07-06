@@ -54,6 +54,19 @@
                 font-size: 28px;
             }
             h2{text-align: center;font-family:Snell Roundhand, cursive;}
+
+            #yt {
+                width: 50px;
+                height: auto;
+            }
+            #mp3 {
+                width:40px;
+                height: 40px;
+            }
+            #lyrics {
+                width:50px;
+                height: 45px;
+            }
         </style>
     </head>
 
@@ -62,7 +75,7 @@
         <h2>MP3 Library</h2>
         <table class ="col-7 p-4 text-center table-center my-5 table-sm">
             <tr>
-                
+
                 <th>Title</th>
                 <th>Album</th>
                 <th>Artist</th>
@@ -77,9 +90,9 @@
                     <td><c:out value = "${i.album}"/></td>
                     <td><c:out value = "${i.artist}"/></td>
                     <td><c:out value = "${i.filename}"/></td>
-                    <td><a href="download/${i.id}" download="${i.filename}">Download</a></td>
-                    <td><a href="https://api.lyrics.ovh/v1/${i.artist}/${i.title}/">Lyrics</a></td>
-                    <td><a href="https://www.youtube.com/results?search_query=${i.artist}+${i.title}">Video</a></td>
+                    <td><a href="download/${i.id}" download="${i.filename}"><img src="static/images/mp3.png" alt="Download" id="mp3"></a></td>
+                    <td><a href="https://api.lyrics.ovh/v1/${i.artist}/${i.title}/"><img src="static/images/lyrics.png" alt="Lyrics" id="lyrics"</a></td>
+                    <td><a href="https://www.youtube.com/results?search_query=${i.artist}+${i.title}"><img src="static/images/youtube.png" alt="YouTube" id="yt"></a></td>
                 </tr>
             </c:forEach>
         </table>
