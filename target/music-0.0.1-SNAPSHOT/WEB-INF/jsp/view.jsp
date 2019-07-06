@@ -68,6 +68,7 @@
                 <th>Artist</th>
                 <th>Filename</th>
                 <th>Download</td>
+                <th>Lyrics</td>
             </tr>
             <c:forEach items="${songs}" var="i">
                 <tr>
@@ -77,11 +78,11 @@
                     <td><c:out value = "${i.artist}"/></td>
                     <td><c:out value = "${i.filename}"/></td>
                     <td><a href="download/${i.id}" download="${i.filename}">Download</a></td>
+                    <td><a href="https://api.lyrics.ovh/v1/${i.artist}/${i.title}/">Lyrics</a></td>
                 </tr>
             </c:forEach>
         </table>
         <br><br>
         <div><a href="${pageContext.request.contextPath}/insert" class="insert">Insert MP3</a></div>
-
     </body>
 </html>
