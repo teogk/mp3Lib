@@ -59,7 +59,7 @@ public class SongController {
             Logger.getLogger(SongController.class.getName()).log(Level.SEVERE, null, ex);
         }
         songDao.insert(song);
-        return "redirect:/view/";
+        return "redirect:/view";
     }
 
     @GetMapping(value = "download/{id}", produces = MediaType.ALL_VALUE)

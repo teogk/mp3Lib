@@ -10,72 +10,13 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <style>
-            body{
-                font-size: 18px;
-            }
-            table{
-                border-collapse: collapse;
-                background-color:white;
-                border-radius: 10px;
-                overflow: hidden; 
-
-            }
-            table, td, th {
-                border: 1px solid black;
-                padding: 1px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            tr:nth-child(1) {
-                background: lightsteelblue;
-            }
-            tr:hover {
-                background-color: lightgray;
-            }
-            div{text-align: center}
-            .insert {
-                background-color: forestgreen;
-                border: none;
-                color: white;
-                padding: 10px 15px;
-                font-size: 25px;
-                border-radius: 4px;
-
-            }
-            .insert:hover{
-                background-color: forestgreen;
-                cursor: pointer;
-                padding: 14px 20px;
-                transition: 0.2s;
-                box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.27), 0 17px 50px 0 rgba(0, 0, 0, 0.22);
-                text-decoration: none;
-                color: white;
-                font-size: 28px;
-            }
-            h2{text-align: center;font-family:Snell Roundhand, cursive;}
-
-            #yt {
-                width: 50px;
-                height: auto;
-            }
-            #mp3 {
-                width:40px;
-                height: 40px;
-            }
-            #lyrics {
-                width:50px;
-                height: 45px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="static/view.css">
     </head>
 
-    <body background="<c:url value='/static/images/p.png' />">
-
+    <body>
         <h2>MP3 Library</h2>
         <table class ="col-7 p-4 text-center table-center my-5 table-sm">
             <tr>
-
                 <th>Title</th>
                 <th>Album</th>
                 <th>Artist</th>
