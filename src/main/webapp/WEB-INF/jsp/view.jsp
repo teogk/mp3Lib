@@ -62,23 +62,24 @@
         <h2>MP3 Library</h2>
         <table class ="col-7 p-4 text-center table-center my-5 table-sm">
             <tr>
-                <th>Id</th>
+                
                 <th>Title</th>
                 <th>Album</th>
                 <th>Artist</th>
                 <th>Filename</th>
                 <th>Download</td>
                 <th>Lyrics</td>
+                <th>YouTube</td>
             </tr>
             <c:forEach items="${songs}" var="i">
                 <tr>
-                    <td><c:out value = "${i.id}"/></td>
                     <td><c:out value = "${i.title}"/></td>
                     <td><c:out value = "${i.album}"/></td>
                     <td><c:out value = "${i.artist}"/></td>
                     <td><c:out value = "${i.filename}"/></td>
                     <td><a href="download/${i.id}" download="${i.filename}">Download</a></td>
                     <td><a href="https://api.lyrics.ovh/v1/${i.artist}/${i.title}/">Lyrics</a></td>
+                    <td><a href="https://www.youtube.com/results?search_query=${i.artist}+${i.title}">Video</a></td>
                 </tr>
             </c:forEach>
         </table>
