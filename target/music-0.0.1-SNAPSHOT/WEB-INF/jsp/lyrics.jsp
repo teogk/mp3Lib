@@ -8,7 +8,6 @@
         crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
         <style>
             body{
                 text-align: center;
@@ -24,18 +23,17 @@
                 font-size: 19px;
                 font-family:Snell Roundhand, cursive;
                 background-color: lightgrey;
-                border-radius: 8px;
+                border-radius: 10px;
             }
             #title,#artist{
                 background-color: lightgrey;
-                border-radius: 8px;
+                border-radius: 10px;
                 margin: 20px;
                 padding: 12px;
                 font-size: 23px;
+                
             }
-
         </style>
-
     </head>
 
     <body>
