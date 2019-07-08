@@ -1,12 +1,13 @@
 
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@page contentType="text/html" pageEncoding="UTF-8"%>
+        <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <title>🎵 MP3 Library</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -18,12 +19,12 @@
     <body>
 
         <h2>MP3 Library</h2>
-        <form:form method="POST" modelAttribute="song" action="${pageContext.request.contextPath}/doinsertSong" enctype="multipart/form-data">
+    <form:form method="POST" modelAttribute="song" action="${pageContext.request.contextPath}/doinsertSong" enctype="multipart/form-data">
 
-            <div class="my-5 text-center"><input type="file" name="mp3"></div>
-            <div class="my-5 text-center"> <input type="submit" value="Upload MP3" id="insert"></div>
-            </form:form>
-            
+        <div class="my-5 text-center"><input type="file" name="mp3"></div>
+        <div class="my-5 text-center"> <input type="submit" value="Upload MP3" id="insert"></div>
+    </form:form>
 
-    </body>
+
+</body>
 </html>

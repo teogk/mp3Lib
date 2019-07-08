@@ -32,7 +32,7 @@
                     <td><c:out value = "${i.artist}"/></td>
                     <td><c:out value = "${i.filename}"/></td>
                     <td><a href="download/${i.id}" download="${i.filename}"><img src="static/images/mp3.png" alt="Download" id="mp3"></a></td>
-                    <td><a href="https://api.lyrics.ovh/v1/${i.artist}/${i.title}/"><img src="static/images/lyrics.png" alt="Lyrics" id="lyrics"</a></td>
+                    <td><a href="lyrics/${i.id}"><img src="static/images/lyrics.png" alt="Lyrics" id="lyrics"</a></td>
                     <td><a href="https://www.youtube.com/results?search_query=${i.artist}+${i.title}"><img src="static/images/youtube.png" alt="YouTube" id="yt"></a></td>
                 </tr>
             </c:forEach>

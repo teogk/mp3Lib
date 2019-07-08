@@ -68,4 +68,14 @@ public class SongController {
         Song song = songDao.getSong(id);
         return song.getFile();
     }
+
+    @RequestMapping(value = "lyrics/{id}", method = RequestMethod.GET)
+    public String getLyrics(ModelMap mm, @PathVariable("id") int id) {
+        Song song = songDao.getSong(id);
+        String artist = song.getArtist();
+        String title = song.getTitle();
+        mm.addAttribute("artist", artist);
+        mm.addAttribute("title", title);
+        return "lyrics";
+    }
 }
