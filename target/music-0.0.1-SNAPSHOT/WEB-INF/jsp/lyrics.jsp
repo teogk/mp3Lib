@@ -11,17 +11,28 @@
 
         <style>
             body{
-                background-image: url("images/p.png");
                 text-align: center;
+                margin-top: 5px;
             }
-
             h2{
                 margin-top: 4px;
-                margin-bottom: 35px;
-                text-align: center;
+                margin-bottom: 30px;
                 font-family:Snell Roundhand, cursive;
             }
-
+            #lyrics{
+                margin: 20px;
+                font-size: 19px;
+                font-family:Snell Roundhand, cursive;
+                background-color: lightgrey;
+                border-radius: 8px;
+            }
+            #title,#artist{
+                background-color: lightgrey;
+                border-radius: 8px;
+                margin: 20px;
+                padding: 12px;
+                font-size: 23px;
+            }
 
         </style>
 
@@ -30,11 +41,15 @@
     <body>
 
         <h2>MP3 Library</h2>
-
-        <h4>ARTIST:</h4>
-        <p id ="artist">${artist}</p>
-        <h4>SONG:</h4>
-        <p id="title" >${title}</p>
+        <div>
+            <h4>ARTIST:</h4>
+            <p id ="artist">${artist}</p>
+        </div>
+        <div>
+            <h4>SONG:</h4>
+            <p id="title" >${title}</p>
+        </div>
+        <h4>LYRICS:</h4>
         <div id="lyrics"></div>
         <script>
             jQuery(App);
